@@ -48,12 +48,12 @@ def get_reddit_jokes():
 #the following executes the code based on command line arguments
 if __name__ == "__main__":
     try:
+        #uses the csv if jokebot called with an argument
         input_csv = sys.argv[1]
         list_of_jokes = read_jokes(input_csv)
     except IndexError:
         #uses reddit as data source if jokebot called without arguments
         list_of_jokes = get_reddit_jokes()
-        #sys.exit(1)
 
 for joke in list_of_jokes:
     tell_joke(joke[0], joke[1])
